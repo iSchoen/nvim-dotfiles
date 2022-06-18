@@ -4,12 +4,9 @@
 vim.g.mapleader = " "
 
 -- IMPORTS
-require("plug")
-require("vars")
 require("opts")
-require("keys")
+require("plugins")
+require("pluginConfig")
+require("keybindings")
 require("colorscheme")
-require("statusline")
-require("treesitter")
-require("lsp")
-require("completion")
+require("languageServers")

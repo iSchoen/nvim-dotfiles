@@ -1,4 +1,4 @@
--- [[ completion.lua ]]
+-- [[ nvimcmp.lua ]]
 
 local cmp = require("cmp")
 local compare = require("cmp.config.compare")
@@ -6,7 +6,6 @@ local lspkind = require("lspkind")
 
 cmp.setup({
   snippet = {
-    -- REQUIRED - you must specify a snippet engine
     expand = function(args)
       require("luasnip").lsp_expand(args.body)
     end,
@@ -63,7 +62,6 @@ cmp.setup({
   }
 })
 
--- Use buffer source for `/` (if you enabled `native_menu`, this won"t work anymore).
 cmp.setup.cmdline("/", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
@@ -74,7 +72,6 @@ cmp.setup.cmdline("/", {
   },
 })
 
--- Use cmdline & path source for ":" (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
