@@ -3,6 +3,7 @@
 local opt = vim.opt
 
 -- [[ Context ]]
+
 opt.number = true                                    -- bool:      Show line numbers
 opt.relativenumber = true                            -- bool:      Show relative line numbers
 opt.scrolloff = 4                                    -- int:       Min num lines of context
