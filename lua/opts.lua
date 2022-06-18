@@ -18,6 +18,7 @@ opt.fileencoding = "utf8"                            -- str:       File encoding
 
 opt.background = "dark"
 opt.termguicolors = true                             -- bool:      If term supports ui color then enable
+vim.g.netrw_banner = 0                               -- 0 | 1:     Toggle netrw banner
 --------------------------------------------------------------------------------------------------------------------------------------
 -- [[ Search ]]
 
@@ -50,13 +51,24 @@ opt.undodir = vim.fn.stdpath("config") .. "/undodir" -- FilePath:  Set directory
 opt.completeopt = "menu,menuone,noinsert"            -- RTFM:      Customize insert mode completion
 opt.autoindent = true                                -- bool:      Copy indent from current line when starting a new line
 opt.smartindent = true                               -- bool:      Perform smart autoindenting when starting a new line
+opt.updatetime = 100                             -- int:       Set the time of inactivity before a swap file is written to disk
 --------------------------------------------------------------------------------------------------------------------------------------
--- [[ Vim commands ]]
+-- [[ Auto Commands ]]
 
--- Auto Commands
-vim.cmd("autocmd BufNewFile * :write")                                              -- Save a buffer when a file is created
-vim.cmd("autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.scss,*.sass :Prettier")  -- Format using Prettier on save
+-- Save a buffer when a file is created
+vim.api.nvim_create_autocmd(
+  "BufNewFile",
+  {
+    pattern = "*",
+    command = ":write"
+  }
+)
 
--- Additional Config
-vim.cmd("let g:netrw_banner = 0")                                                   -- Remove netrw banner
-vim.cmd("set updatetime=100")                                                       -- Set update time to 100ms
+-- Format using Prettier on save
+vim.api.nvim_create_autocmd(
+  "BufWritePre",
+  {
+    pattern = "*.js,*.jsx,*.ts,*.tsx,*.css,*.scss,*.sass",
+    command = ":Prettier"
+  }
+)
