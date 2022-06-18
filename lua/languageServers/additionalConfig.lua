@@ -1,4 +1,4 @@
--- [[ additionalConfig.lua ]]
+-- [[ languageServers.additionalConfig.lua ]]
 
 -- Configure diagnostic window
 vim.diagnostic.config({

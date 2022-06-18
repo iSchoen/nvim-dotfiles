@@ -1,3 +1,5 @@
+-- [[ languageServers.init.lua ]]
+
 require("languageServers.additionalConfig")
 require("languageServers.eslint")
 require("languageServers.lua")

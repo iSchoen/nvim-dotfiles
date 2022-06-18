@@ -1,4 +1,4 @@
--- [[ typescript.lua ]]
+-- [[ languageServers.typescript.lua ]]
 -- Run `npm install -g typescript typescript-language-server`
 
 local lspconfig = require("lspconfig")

@@ -3,7 +3,6 @@
 -- LEADER
 vim.g.mapleader = " "
 
--- IMPORTS
 require("opts")
 require("plugins")
 require("pluginConfig")

@@ -1,4 +1,4 @@
--- [[ ruby.lua ]]
+-- [[ languageServers.ruby.lua ]]
 -- Run `gem install --user-install solargraph`
 
 local lspconfig = require("lspconfig")

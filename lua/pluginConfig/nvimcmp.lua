@@ -1,4 +1,4 @@
--- [[ nvimcmp.lua ]]
+-- [[ pluginConfig.nvimcmp.lua ]]
 
 local cmp = require("cmp")
 local compare = require("cmp.config.compare")

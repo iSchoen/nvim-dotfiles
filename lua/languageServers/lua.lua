@@ -1,4 +1,4 @@
--- [[ lua.lua ]]
+-- [[ languageServers.lua.lua ]]
 -- Run `brew install lua-language-server`
 
 local lspconfig = require("lspconfig")
