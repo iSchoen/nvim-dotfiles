@@ -51,7 +51,7 @@ opt.undodir = vim.fn.stdpath("config") .. "/undodir" -- FilePath:  Set directory
 opt.completeopt = "menu,menuone,noinsert"            -- RTFM:      Customize insert mode completion
 opt.autoindent = true                                -- bool:      Copy indent from current line when starting a new line
 opt.smartindent = true                               -- bool:      Perform smart autoindenting when starting a new line
-opt.updatetime = 100                             -- int:       Set the time of inactivity before a swap file is written to disk
+opt.updatetime = 100                                 -- int:       Set the time of inactivity before a swap file is written to disk
 --------------------------------------------------------------------------------------------------------------------------------------
 -- [[ Auto Commands ]]
 

@@ -80,6 +80,10 @@ return require("packer").startup(function(use)
 --------------------------------------------------------------------------------------------------------------------------------------
   -- [[ Themes ]]
 
+  use { "morhetz/gruvbox" }                                     -- Colorscheme - Gruvbox
+  use { "Mofiqul/dracula.nvim" }                                -- Colorscheme - Dracula (Lua port)
+  use { "tanvirtin/monokai.nvim" }                              -- Colorscheme - Monokai
+  use { "tomasr/molokai" }                                      -- Colorscheme - Molokai
   use { "TroyFletcher/vim-colors-synthwave" }                   -- Colorscheme - Synthwave
 --------------------------------------------------------------------------------------------------------------------------------------
   -- [[ Editing ]]
