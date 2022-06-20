@@ -89,6 +89,7 @@ return require("packer").startup(function(use)
 --------------------------------------------------------------------------------------------------------------------------------------
   -- [[ Editing ]]
 
+  use { "github/copilot.vim" }                                  -- AI generated autocompletion suggestions
   use { "tpope/vim-surround" }                                  -- Vim nouns, motions, and verbs for changing surrounding characters
   use { "tpope/vim-repeat" }                                    -- Allow `.` to repeat actions performed by plugins
 end)
