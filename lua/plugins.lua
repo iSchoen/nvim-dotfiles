@@ -92,5 +92,6 @@ return require("packer").startup(function(use)
   use { "github/copilot.vim" }                                  -- AI generated autocompletion suggestions
   use { "tpope/vim-surround" }                                  -- Vim nouns, motions, and verbs for changing surrounding characters
   use { "tpope/vim-repeat" }                                    -- Allow `.` to repeat actions performed by plugins
+  use { "phaazon/hop.nvim" }                                    -- Quickly navigate using small subsets of characters
 end)
 
