@@ -61,6 +61,7 @@ return require("packer").startup(function(use)
     "nvim-lualine/lualine.nvim",                                -- Display useful information in status line
     requires = { "kyazdani42/nvim-web-devicons", opt = true }
   }
+  use { "arkav/lualine-lsp-progress" }                          -- Display LSP loading status in status line
   use {
     "goolord/alpha-nvim",                                       -- Customize Neovim startup screen
     requires = { "kyazdani42/nvim-web-devicons" }
