@@ -34,7 +34,7 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ["<C-j>"] = cmp.mapping.scroll_docs(-4),
     ["<C-k>"] = cmp.mapping.scroll_docs(4),
-    ["<CR>"] = cmp.mapping.confirm({ select = false }),
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
     ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { "i", "c" }),
     ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { "i", "c" }),
   }),
