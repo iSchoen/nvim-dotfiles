@@ -19,7 +19,6 @@ map("n", "<leader>/", ":nohlsearch<CR>", { silent = true, noremap = true })   --
 --------------------------------------------------------------------------------------------------------------------------------------
 -- [[ LSP ]]
 
-map("n", "<space>e", ":lua vim.diagnostic.open_float()<CR>", {})              -- Open floating diagnostic window
 map("n", "gd", ":lua vim.lsp.buf.definition()<CR>", {})                       -- Go to definition
 map("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", {})                      -- Go to declaration
 map("n", "gt", ":lua vim.lsp.buf.type_definition()<CR>", {})                  -- Go to type definition
@@ -27,6 +26,7 @@ map("n", "gi", ":lua vim.lsp.buf.implementation()<CR>", {})                   --
 map("n", "gw", ":lua vim.lsp.buf.document_symbol()<CR>", {})                  -- List all symbols in the current buffer in the quickfix window.
 map("n", "gW", ":lua vim.lsp.buf.workspace_symbol()<CR>", {})                 -- List all symbols in the current workspace in the quickfix window.
 map("n", "gr", ":lua vim.lsp.buf.references()<CR>", {})                       -- List all the references to the symbol under the cursor in the quickfix window.
+map("n", "L", ":lua vim.diagnostic.open_float()<CR>", {})                     -- Open floating diagnostic window
 map("n", "K", ":lua vim.lsp.buf.hover()<CR>", {})                             -- Display hover information about the symbol under the cursor in a floating window.
 -- map("n", "<c-k>", ":lua vim.lsp.buf.signature_help()<CR>", {})             -- Display signature information about the symbol under the cursor in a floating window.
 map("n", "<leader>af", ":lua vim.lsp.buf.code_action()<CR>", {})              -- Select a code action available at the current cursor position.
