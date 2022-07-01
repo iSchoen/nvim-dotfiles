@@ -38,6 +38,8 @@ return require("packer").startup(function(use)
   use { "hrsh7th/cmp-buffer" }                                  -- Generates completion source from buffer
   use { "hrsh7th/cmp-path" }                                    -- Generates completion source from path
   use { "hrsh7th/cmp-cmdline" }                                 -- Generates completion source from command line
+  use { "hrsh7th/cmp-nvim-lua" }                                -- Generates completion source for nvim Lua API
+  use { "hrsh7th/cmp-nvim-lsp-signature-help" }                 -- Generates completion source for nvim LSP signature help
   use { "hrsh7th/nvim-cmp" }                                    -- Consumes all completion sources and provides suggestions
   use { "nvim-lua/completion-nvim" }                            -- Provides autocompletion functionality for nvim
   use { "onsails/lspkind.nvim" }                                -- Provides pictograms to NeoVim LSP suggestions
@@ -66,6 +68,10 @@ return require("packer").startup(function(use)
     "goolord/alpha-nvim",                                       -- Customize Neovim startup screen
     requires = { "kyazdani42/nvim-web-devicons" }
   }
+  use {                                                         -- Improve tab behavior
+    "romgrk/barbar.nvim",
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
 --------------------------------------------------------------------------------------------------------------------------------------
   -- [[ Treesitter ]]
 
@@ -93,5 +99,12 @@ return require("packer").startup(function(use)
   use { "tpope/vim-surround" }                                  -- Vim nouns, motions, and verbs for changing surrounding characters
   use { "tpope/vim-repeat" }                                    -- Allow `.` to repeat actions performed by plugins
   use { "phaazon/hop.nvim" }                                    -- Quickly navigate using small subsets of characters
+  use { "windwp/nvim-autopairs" }                               -- Auto-pairing of characters
+
+  -- [[ Markdown ]]
+  use({
+    "iamcco/markdown-preview.nvim",                             -- Preview markdown files in a browser tab
+      run = function() vim.fn["mkdp#util#install"]() end,
+  })
 end)
 
