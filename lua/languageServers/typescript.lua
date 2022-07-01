@@ -13,7 +13,7 @@ local function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 
-lspconfig.tsserver.setup {
+lspconfig.tsserver.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   commands = {
@@ -22,5 +22,5 @@ lspconfig.tsserver.setup {
       description = "Organize Imports"
     }
   }
-}
+})
 
