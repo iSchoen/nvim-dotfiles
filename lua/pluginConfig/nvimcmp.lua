@@ -16,9 +16,7 @@ cmp.setup({
   },
 
   window = {
-    completion = cmp.config.window.bordered(),
     documentation = {
-      border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"},
       winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
       scrollbar = "║",
     }
@@ -32,8 +30,8 @@ cmp.setup({
   },
 
   mapping = cmp.mapping.preset.insert({
-    ["<C-j>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-k>"] = cmp.mapping.scroll_docs(4),
+    ["<C-n>"] = cmp.mapping.scroll_docs(4),
+    ["<C-p>"] = cmp.mapping.scroll_docs(-4),
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
     ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { "i", "c" }),
     ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { "i", "c" }),
@@ -54,11 +52,12 @@ cmp.setup({
   },
 
   sources = {
-    { name = "luasnip" },
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
+    { name = "luasnip" },
     { name = "buffer" },
-    { name = "path" }
+    { name = "path" },
+    { name = 'nvim_lsp_signature_help' }
   }
 })
 
