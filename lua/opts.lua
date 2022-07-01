@@ -34,6 +34,8 @@ opt.shiftwidth = 2                                   -- num:       Size of an in
 opt.softtabstop = 2                                  -- num:       Number of spaces tabs count for in insert mode
 opt.tabstop = 2                                      -- num:       Number of spaces tabs count for
 opt.wrap = false                                     -- bool:      Toggle wrapping of text (for display only)
+opt.softtabstop = 2                                  -- num:       Number of spaces tabs count for in insert mode
+opt.shiftwidth = 2                                   -- num:       Size of an indent
 --------------------------------------------------------------------------------------------------------------------------------------
 -- [[ Splits ]]
 
@@ -49,8 +51,7 @@ opt.clipboard = "unnamedplus"                        -- RTFM:      Always use th
 opt.undofile = true                                  -- bool:      Use an undo file for persistent undo
 opt.undodir = vim.fn.stdpath("config") .. "/undodir" -- FilePath:  Set directory for persistent undo file
 opt.completeopt = "menu,menuone,noinsert"            -- RTFM:      Customize insert mode completion
-opt.autoindent = true                                -- bool:      Copy indent from current line when starting a new line
-opt.smartindent = true                               -- bool:      Perform smart autoindenting when starting a new line
+opt.expandtab = true                                 -- bool:      Use spaces instead of tabs
 opt.updatetime = 100                                 -- int:       Set the time of inactivity before a swap file is written to disk
 --------------------------------------------------------------------------------------------------------------------------------------
 -- [[ Auto Commands ]]
@@ -72,3 +73,4 @@ vim.api.nvim_create_autocmd(
     command = ":Prettier"
   }
 )
+
