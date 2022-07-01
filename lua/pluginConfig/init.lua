@@ -1,6 +1,7 @@
 -- [[ pluginConfig.init.lua ]]
 
 require("pluginConfig.alpha")
+require("pluginConfig.autopairs")
 require("pluginConfig.gitblame")
 require("pluginConfig.hop")
 require("pluginconfig.lualine")
