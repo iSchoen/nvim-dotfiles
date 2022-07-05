@@ -49,7 +49,10 @@ return require("packer").startup(function(use)
   use { "nvim-lua/plenary.nvim" }                               -- Useful functions using the NeoVim API
   use { "nvim-lua/popup.nvim" }                                 -- Implementation of the Vim popup API in NeoVim
   use { "nvim-lua/telescope.nvim" }                             -- Extendable fuzzy finder over lists
-  use { "jremmen/vim-ripgrep" }                                 -- BLAZINGLY fast line-oriented search tool
+  use {
+    "nvim-telescope/telescope-fzf-native.nvim",                 -- Fuzzy finder plugin for Telescope
+    run = "make"
+  }
 --------------------------------------------------------------------------------------------------------------------------------------
   -- [[ Git ]]
 
@@ -67,10 +70,6 @@ return require("packer").startup(function(use)
   use {
     "goolord/alpha-nvim",                                       -- Customize Neovim startup screen
     requires = { "kyazdani42/nvim-web-devicons" }
-  }
-  use {                                                         -- Improve tab behavior
-    "romgrk/barbar.nvim",
-    requires = {'kyazdani42/nvim-web-devicons'}
   }
 --------------------------------------------------------------------------------------------------------------------------------------
   -- [[ Treesitter ]]
