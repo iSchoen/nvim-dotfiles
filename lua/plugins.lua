@@ -71,7 +71,14 @@ return require("packer").startup(function(use)
     "goolord/alpha-nvim",                                       -- Customize Neovim startup screen
     requires = { "kyazdani42/nvim-web-devicons" }
   }
+  use {
+    "kyazdani42/nvim-tree.lua",                                 -- File explorer
+    requires = {
+      "kyazdani42/nvim-web-devicons",
+    },
+    tag = "nightly"
   }
+
 --------------------------------------------------------------------------------------------------------------------------------------
   -- [[ Treesitter ]]
 
