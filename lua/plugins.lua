@@ -71,9 +71,6 @@ return require("packer").startup(function(use)
     "goolord/alpha-nvim",                                       -- Customize Neovim startup screen
     requires = { "kyazdani42/nvim-web-devicons" }
   }
-  use {                                                         -- Implement standard tab behavior
-    "romgrk/barbar.nvim",
-    requires = {"kyazdani42/nvim-web-devicons"}
   }
 --------------------------------------------------------------------------------------------------------------------------------------
   -- [[ Treesitter ]]
