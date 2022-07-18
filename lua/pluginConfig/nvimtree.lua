@@ -5,5 +5,11 @@ require("nvim-tree").setup({
     adaptive_size = true,
     side = "right",
     relativenumber = true
+  },
+  filters = {
+    dotfiles = false
+  },
+  git = {
+    ignore = false
   }
 })
