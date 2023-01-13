@@ -1,0 +1,16 @@
+-- [[ plugins.init.lua ]]
+
+require("plugins.autopairs")
+require("plugins.comment")
+require("plugins.copilot")
+require("plugins.fidget")
+require("plugins.gitblame")
+require("plugins.gitsigns")
+require("plugins.indentblankline")
+require("plugins.lualine")
+require("plugins.mason")
+require("plugins.neodev")
+require("plugins.nvimcmp")
+require("plugins.nvimtree")
+require("plugins.telescope")
+require("plugins.treesitter")
