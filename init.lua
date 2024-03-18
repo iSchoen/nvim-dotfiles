@@ -7,6 +7,7 @@ require("plugins")
 local packer_group = vim.api.nvim_create_augroup("Packer", {
 	clear = true
 })
+
 vim.api.nvim_create_autocmd("BufWritePost", {
 	command = "source <afile> | PackerCompile",
 	group = packer_group,
@@ -22,3 +23,5 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+vim.opt.directory:prepend("~/.config/nvim/swap//")  -- Change the path accordingly
