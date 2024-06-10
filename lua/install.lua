@@ -22,7 +22,7 @@ require("packer").startup(function(use)
 			"folke/neodev.nvim",									-- Additional lua configuration, makes nvim stuff amazing
 		},
 	}
-	use { 'j-hui/fidget.nvim', tag = 'legacy' }
+	use { 'j-hui/fidget.nvim' }								-- Elegant editor notifications
 	use { -- Primary autocompletion engine
 		"hrsh7th/nvim-cmp",
 		requires = { "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip" },
