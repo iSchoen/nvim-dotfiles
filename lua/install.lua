@@ -75,11 +75,10 @@ require("packer").startup(function(use)
 	use { "numToStr/Comment.nvim" }								-- "gc" to comment visual regions/lines
 	use { "tpope/vim-sleuth" }										-- Detect tabstop and shiftwidth automatically
 	use {
-		"kyazdani42/nvim-tree.lua",									-- File explorer
+		"nvim-tree/nvim-tree.lua",
 		requires = {
-			"kyazdani42/nvim-web-devicons",
-		},
-		tag = "nightly"
+			"nvim-tree/nvim-web-devicons",
+		}
 	}
 
 	-----------------------------------------------------------------------------------------------------------------------------------------------------
