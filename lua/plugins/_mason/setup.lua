@@ -73,7 +73,8 @@ local servers = {
 	rust_analyzer = {},
 	tsserver = {},
 	eslint = {},
-	jsonls = {}
+	jsonls = {},
+	elixirls = {}
 }
 
 
