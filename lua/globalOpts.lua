@@ -70,16 +70,6 @@ vim.api.nvim_create_autocmd(
 	}
 )
 
-
--- Format using Prettier on save
-vim.api.nvim_create_autocmd(
-	"BufWritePre",
-	{
-		pattern = "*.js,*.jsx,*.ts,*.tsx,*.css,*.scss,*.sass,*.prisma",
-		command = ":Format"
-	}
-)
-
 -- Format using Prettier on save
 vim.api.nvim_create_autocmd(
 	"BufWritePre",
@@ -88,6 +78,9 @@ vim.api.nvim_create_autocmd(
 		command = ":Prettier"
 	}
 )
+
+-- Format elixir files using mix format on save
+vim.api.nvim_command("au BufWritePost *.ex,*.exs,*.heex lua vim.lsp.buf.format()")
 
 -- Highlight on yank (See `:help vim.highlight.on_yank()`)
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", {
