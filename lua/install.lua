@@ -82,17 +82,6 @@ require("packer").startup(function(use)
 	}
 
 	-----------------------------------------------------------------------------------------------------------------------------------------------------
-	-- [[ AI ]]
-	use { "MunifTanjim/nui.nvim" }
-	use({
-		"jackMort/ChatGPT.nvim",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim"
-		}
-	})
-
-	-----------------------------------------------------------------------------------------------------------------------------------------------------
 	-- [[ Fuzzy Finding ]]
 	-- Fuzzy Finder (files, lsp, etc)
 	use { "nvim-telescope/telescope.nvim", branch = "0.1.x", requires = { "nvim-lua/plenary.nvim" } }

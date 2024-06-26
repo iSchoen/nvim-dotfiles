@@ -1,7 +1,6 @@
 -- [[ plugins.init.lua ]]
 
 require("plugins._autopairs.init")
-require("plugins._chatgpt.init")
 require("plugins._comment")
 require("plugins._copilot")
 require("plugins._fidget")
