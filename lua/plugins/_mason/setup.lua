@@ -1,7 +1,7 @@
 -- [[ plugins.mason.setup.lua ]]
 
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don"t have to repeat yourself
   -- many times.
@@ -61,20 +61,16 @@ local function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
+-- Enable the following language servers & ensure they are installed
 local servers = {
+  biome = {},
   clangd = {},
-  --	gopls = {},
-  pyright = {},
-  rust_analyzer = {},
-  tsserver = {},
+  elixirls = {},
   eslint = {},
   jsonls = {},
-  elixirls = {}
+  pyright = {},
+  rust_analyzer = {},
+  tsserver = {}
 }
 
 
@@ -98,6 +94,47 @@ mason_lspconfig.setup_handlers({
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name]
+    })
+  end,
+
+  ["biome"] = function()
+    lspconfig.biome.setup({
+      on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          command = "lua vim.lsp.buf.format()",
+        })
+      end,
+      filetypes = { "javascript", "javascriptreact", "json", "jsonc", "typescript", "typescript.tsx", "typescriptreact", "astro", "svelte", "vue", "css" },
+      root_dir = lspconfig.util.root_pattern("biome.json", "biome.jsonc"),
+      single_file_support = false
+    })
+  end,
+
+
+  ["eslint"] = function()
+    lspconfig.eslint.setup({
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          command = "EslintFixAll",
+        })
+      end,
+      root_dir = lspconfig.util.root_pattern(
+        "eslint.json",
+        ".eslintrc",
+        ".eslintrc.js",
+        ".eslintrc.json",
+        ".eslintrc.yaml",
+        ".eslintrc.yml",
+        "eslint.config.js",
+        "eslint.config.mjs"
+      )
     })
   end,
 
@@ -126,12 +163,7 @@ mason_lspconfig.setup_handlers({
       capabilities = capabilities,
       on_attach = on_attach,
       root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-      commands = {
-        OR = {
-          organize_imports,
-          description = "Organize Imports"
-        }
-      }
+      commands = {}
     })
   end,
 
@@ -141,12 +173,7 @@ mason_lspconfig.setup_handlers({
       on_attach = on_attach,
       root_dir = lspconfig.util.root_pattern("package.json"),
       single_file_support = false,
-      commands = {
-        OR = {
-          organize_imports,
-          description = "Organize Imports"
-        }
-      }
+      commands = {}
     })
   end,
 

@@ -53,6 +53,8 @@ vim.o.mouse = "a"               -- RTFM:      Enable mouse mode
 -- [[ Editing ]]
 
 vim.o.undofile = true                                  -- bool:      Use an undo file for persistent undo
+vim.o.dir = vim.fn.stdpath("config") .. "/tmp"	       -- str:       Directory to put swap files
+vim.o.backupdir = vim.fn.stdpath("config") .. "/tmp"   -- str:       Directory to put backup files
 vim.o.undodir = vim.fn.stdpath("config") .. "/undodir" -- filePath:  Set directory for persistent undo file
 vim.o.completeopt = "menu,menuone,noinsert"            -- RTFM:      Customize insert mode completion
 vim.o.expandtab = true                                 -- bool:      Use spaces instead of tabs
@@ -73,16 +75,7 @@ vim.api.nvim_create_autocmd(
 vim.api.nvim_create_autocmd(
   "BufWritePre",
   {
-    pattern = "*.js,*.jsx,*.ts,*.tsx",
-    command = ":EslintFixAll"
-  }
-)
-
--- Format using Prettier on save
-vim.api.nvim_create_autocmd(
-  "BufWritePre",
-  {
-    pattern = "*.js,*.jsx,*.ts,*.tsx,*.css,*.scss,*.sass,*.prisma",
+    pattern = "*.js,*.jsx,*.ts,*.tsx,*.mjs,*.cjs,*.vue,*.css,*.scss,*.sass,*.prisma,*.json,*.jsonc,*.html,*.graphql,*.gql,*.md,*.mdx,*.yml,*.yaml",
     command = ":Prettier"
   }
 )
@@ -94,6 +87,7 @@ vim.api.nvim_command("au BufWritePost *.ex,*.exs,*.heex lua vim.lsp.buf.format()
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", {
   clear = true
 })
+
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
