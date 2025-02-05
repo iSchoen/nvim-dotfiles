@@ -1,8 +1,9 @@
 -- [[ plugins.init.lua ]]
 
-require("plugins._autopairs.init")
+require("plugins._autopairs")
 require("plugins._comment")
 require("plugins._copilot")
+require("plugins._diffview")
 require("plugins._fidget")
 require("plugins._gitblame")
 require("plugins._gitsigns")
@@ -13,3 +14,4 @@ require("plugins._nvimcmp")
 require("plugins._nvimtree")
 require("plugins._telescope")
 require("plugins._treesitter")
+require("plugins._vim-sleuth")
