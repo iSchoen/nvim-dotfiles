@@ -44,7 +44,6 @@ require("packer").startup(function(use)
 	-- use({ "github/copilot.vim" }) -- AI generated autocompletion suggestions
 	use({ "stevearc/dressing.nvim" }) -- Improve UI using the built-in core UI hooks `vim.ui.select` and `vim.ui.input`
 	use({ "ckipp01/stylua-nvim", run = "cargo install stylua" }) -- Lua formatter
-	use({ "supermaven-inc/supermaven-nvim" }) -- Supermaven plugin for nvim
 
 	-----------------------------------------------------------------------------------------------------------------------------------------------------
 	-- [[ Treesitter ]]
