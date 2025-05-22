@@ -41,7 +41,6 @@ require("packer").startup(function(use)
 	use({ "tpope/vim-surround" }) -- Vim nouns, motions, and verbs for changing surrounding characters
 	use({ "tpope/vim-repeat" }) -- Allow `.` to repeat actions performed by plugins
 	use({ "windwp/nvim-autopairs" }) -- Auto-pairing of characters
-	-- use({ "github/copilot.vim" }) -- AI generated autocompletion suggestions
 	use({ "stevearc/dressing.nvim" }) -- Improve UI using the built-in core UI hooks `vim.ui.select` and `vim.ui.input`
 	use({ "ckipp01/stylua-nvim", run = "cargo install stylua" }) -- Lua formatter
 
