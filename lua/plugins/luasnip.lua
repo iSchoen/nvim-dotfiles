@@ -1,0 +1,67 @@
+return {
+	-- "L3MON4D3/LuaSnip",
+	-- version = "v2.*",
+	-- build = "make install_jsregexp",
+	-- dependencies = {
+	-- 	"rafamadriz/friendly-snippets",
+	-- 	"saadparwaiz1/cmp_luasnip",
+	-- },
+	-- config = function()
+	-- 	local luasnip = require("luasnip")
+	-- 	local types = require("luasnip.util.types")
+	--
+	-- 	luasnip.config.set_config({
+	-- 		history = true,
+	-- 		updateevents = "TextChanged,TextChangedI",
+	-- 		enable_autosnippets = true,
+	-- 		ext_opts = {
+	-- 			[types.choiceNode] = {
+	-- 				active = {
+	-- 					virt_text = { { "●", "Operator" } },
+	-- 				},
+	-- 			},
+	-- 			[types.insertNode] = {
+	-- 				active = {
+	-- 					virt_text = { { "●", "Type" } },
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 	})
+	--
+	-- 	-- Jumping forwards and backwards through snippets
+	-- 	vim.keymap.set({ "i", "s" }, "<Tab>", function()
+	-- 		if luasnip.expand_or_jumpable() then
+	-- 			luasnip.expand_or_jump()
+	-- 		else
+	-- 			-- If not jumpable, send a regular tab
+	-- 			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, true, true), "n", false)
+	-- 		end
+	-- 	end, { silent = true })
+	--
+	-- 	vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
+	-- 		if luasnip.jumpable(-1) then
+	-- 			luasnip.jump(-1)
+	-- 		else
+	-- 			-- If not jumpable, send a regular shift-tab
+	-- 			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<S-Tab>", true, true, true), "n", false)
+	-- 		end
+	-- 	end, { silent = true })
+	--
+	-- 	-- Load friendly-snippets
+	-- 	require("luasnip.loaders.from_vscode").lazy_load()
+	--
+	-- 	-- Exit snippet mode when entering normal mode
+	-- 	vim.api.nvim_create_autocmd("ModeChanged", {
+	-- 		pattern = "*",
+	-- 		callback = function()
+	-- 			if
+	-- 				((vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n") or vim.v.event.old_mode == "i")
+	-- 				and luasnip.session.current_nodes[vim.api.nvim_get_current_buf()]
+	-- 				and not luasnip.session.jump_active
+	-- 			then
+	-- 				luasnip.unlink_current()
+	-- 			end
+	-- 		end,
+	-- 	})
+	-- end,
+}
