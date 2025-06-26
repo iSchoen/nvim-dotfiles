@@ -1,8 +1,7 @@
+-- $ brew install rust-analyzer
+
 return {
-  on_attach = function(_, bufnr)
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "lua vim.lsp.buf.format()",
-    })
-  end,
+	cmd = { "rust-analyzer" },
+
+	filetypes = { "rust" },
 }
