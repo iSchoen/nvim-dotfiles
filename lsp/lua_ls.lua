@@ -1,20 +1,56 @@
+-- $ brew install lua-language-server
+
 return {
-	cmd = {
-		"lua-language-server",
-	},
+	cmd = { "lua-language-server" },
+
 	filetypes = {
 		"lua",
 	},
+
+	single_file_support = true,
+
 	root_markers = {
-		".git",
-		".luacheckrc",
 		".luarc.json",
 		".luarc.jsonc",
+		".luacheckrc",
 		".stylua.toml",
+		"stylua.toml",
 		"selene.toml",
 		"selene.yml",
-		"stylua.toml",
+		".git",
 	},
-	single_file_support = true,
-	log_level = vim.lsp.protocol.MessageType.Warning
+
+	on_init = function(client)
+		if client.workspace_folders then
+			local path = client.workspace_folders[1].name
+			if
+				path ~= vim.fn.stdpath("config")
+				and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
+			then
+				return
+			end
+		end
+
+		client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+			runtime = {
+				version = "LuaJIT",
+				path = {
+					"lua/?.lua",
+					"lua/?/init.lua",
+				},
+			},
+			workspace = {
+				checkThirdParty = false,
+				library = {
+					vim.env.VIMRUNTIME,
+				},
+			},
+		})
+	end,
+
+	settings = {
+		Lua = {},
+	},
+
+	log_level = vim.lsp.protocol.MessageType.Warning,
 }

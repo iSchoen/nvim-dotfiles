@@ -1,9 +1,22 @@
-return {
-  on_attach = function(client, bufnr)
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "lua vim.lsp.buf.format()",
-    })
-  end,
-}
+-- $ npm install -g yaml-language-server
 
+return {
+	cmd = { "yaml-language-server", "--stdio" },
+
+	filetypes = {
+		"yaml",
+		"yaml.docker-compose",
+		"yaml.gitlab",
+		"yaml.helm-values",
+	},
+
+	root_markers = { ".git" },
+
+	{
+		redhat = {
+			telemetry = {
+				enabled = false,
+			},
+		},
+	},
+}
