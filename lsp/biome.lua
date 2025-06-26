@@ -3,7 +3,11 @@
 local project = require("util.project")
 
 return {
-	cmd = { "biome", "lsp-proxy" },
+	cmd = {
+		"bash",
+		"-c",
+		"if [ -f ./node_modules/.bin/biome ]; then ./node_modules/.bin/biome lsp-proxy; else biome lsp-proxy; fi",
+	},
 
 	filetypes = {
 		"javascript",
