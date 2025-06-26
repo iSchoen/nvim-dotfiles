@@ -12,6 +12,17 @@ return {
 
 	root_markers = { "package.json", ".git" },
 
+	root_dir = function(bufnr, on_dir)
+		local buf_name = vim.api.nvim_buf_get_name(bufnr)
+		local filename = vim.fn.fnamemodify(buf_name, ":t")
+
+		if filename == "biome.json" or filename == "biome.jsonc" then
+			return nil
+		end
+
+		on_dir(vim.fn.getcwd())
+	end,
+
 	settings = {
 		json = {
 			schemas = require("schemastore").json.schemas(),
