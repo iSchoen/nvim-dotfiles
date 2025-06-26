@@ -86,3 +86,7 @@ vim.opt.listchars = { tab = "  │", trail = "·", extends = "…", precedes = "
 vim.o.winborder = "rounded"
 
 vim.opt.shortmess:append("c")
+
+vim.g.markdown_fenced_languages = {
+	"ts=typescript",
+}
