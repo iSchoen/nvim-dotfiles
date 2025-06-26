@@ -7,7 +7,7 @@ local get_js_formatter = function(bufnr)
 			or bufname
 	)
 	if project.has_biome(root) then
-		return { "biome" }
+		return { "biome", "biome-check" }
 	end
 
 	return { "deno_fmt" }
@@ -47,19 +47,19 @@ return {
 			lua = { "stylua" },
 
 			javascript = function(bufnr)
-				get_js_formatter(bufnr)
+				return get_js_formatter(bufnr)
 			end,
 
 			javascriptreact = function(bufnr)
-				get_js_formatter(bufnr)
+				return get_js_formatter(bufnr)
 			end,
 
 			typescript = function(bufnr)
-				get_js_formatter(bufnr)
+				return get_js_formatter(bufnr)
 			end,
 
 			typescriptreact = function(bufnr)
-				get_js_formatter(bufnr)
+				return get_js_formatter(bufnr)
 			end,
 
 			json = { "biome" },
