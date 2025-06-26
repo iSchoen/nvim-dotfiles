@@ -1,5 +1,3 @@
-print("Is this working?...")
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.general.positionEncodings = { "utf-16" }
 
