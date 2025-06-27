@@ -2,6 +2,7 @@ local uv = vim.loop
 local M = {}
 
 function M.is_node()
+	local bufname = vim.api.nvim_buf_get_name(0)
 	local root = vim.fs.dirname(
 		vim.fs.find({ "package.json", "deno.json", "deno.jsonc", ".git" }, { upward = true, path = bufname })[1]
 			or bufname
@@ -15,6 +16,7 @@ function M.is_node()
 end
 
 function M.has_biome()
+	local bufname = vim.api.nvim_buf_get_name(0)
 	local root = vim.fs.dirname(
 		vim.fs.find({ "package.json", "deno.json", "deno.jsonc", ".git" }, { upward = true, path = bufname })[1]
 			or bufname
