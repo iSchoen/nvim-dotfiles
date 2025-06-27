@@ -53,22 +53,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "L", vim.diagnostic.open_float, { buffer = bufnr, desc = "Show Diagnostic Error" })
 	end,
 })
-
--- vim.api.nvim_create_autocmd("FileType", {
--- 	pattern = "qf",
--- 	callback = function()
--- 		vim.cmd("wincmd J") -- Move quickfix window to the bottom
--- 		vim.cmd("wincmd =") -- Equalize window sizes
--- 		vim.schedule(function()
--- 			vim.cmd("wincmd o") -- close all others *after* event loop settles
--- 		end)
--- 	end,
--- })
-
-vim.api.nvim_create_autocmd("BufWinEnter", {
-	pattern = "*Quickfix*",
-	callback = function()
-		vim.opt_local.winfixheight = false -- equivalent to :setlocal nowinfixheight
-		vim.cmd("resize 80") -- set quickfix window height to 20
-	end,
-})
