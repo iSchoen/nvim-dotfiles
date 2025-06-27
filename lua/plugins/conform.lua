@@ -1,12 +1,7 @@
 local project = require("util.project")
 
 local get_js_formatter = function(bufnr)
-	local bufname = vim.api.nvim_buf_get_name(bufnr)
-	local root = vim.fs.dirname(
-		vim.fs.find({ "package.json", "deno.json", "deno.jsonc", ".git" }, { upward = true, path = bufname })[1]
-			or bufname
-	)
-	if project.has_biome(root) then
+	if project.has_biome() then
 		return { "biome", "biome-check" }
 	end
 
