@@ -11,12 +11,4 @@ return {
 	},
 
 	root_markers = { ".git" },
-
-	{
-		redhat = {
-			telemetry = {
-				enabled = false,
-			},
-		},
-	},
 }
