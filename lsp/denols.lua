@@ -9,6 +9,19 @@ return {
 		NO_COLOR = true,
 	},
 
+	settings = {
+		deno = {
+			enable = true,
+			suggest = {
+				imports = {
+					hosts = {
+						["https://deno.land"] = true,
+					},
+				},
+			},
+		},
+	},
+
 	on_attach = function(client)
 		client.server_capabilities.documentFormattingProvider = true
 	end,
