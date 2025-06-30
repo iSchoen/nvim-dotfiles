@@ -2,7 +2,7 @@ local project = require("util.project")
 
 local get_js_formatter = function(bufnr)
 	if project.has_biome() then
-		return { "biome", "biome-check" }
+		return { "biome" }
 	end
 
 	return { "deno_fmt" }
