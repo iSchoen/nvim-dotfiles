@@ -1,8 +1,16 @@
 local project = require("util.project")
 
-local get_js_formatter = function(bufnr)
+local get_js_formatter = function()
 	if project.has_biome() then
-		return { "biome" }
+		return { "biome-check" }
+	end
+
+	return { "deno_fmt" }
+end
+
+local get_json_formatter = function()
+	if project.has_biome() then
+		return { "biome-check" }
 	end
 
 	return { "deno_fmt" }
@@ -24,42 +32,56 @@ return {
 	},
 	opts = {
 		notify_on_error = false,
-		format_on_save = function(bufnr)
+
+		format_on_save = function()
 			local lsp_format_opt = "never"
 			return {
 				timeout_ms = 500,
 				lsp_format = lsp_format_opt,
 			}
 		end,
+
 		formatters = {
 			deno_fmt = {
 				command = "deno",
-				args = { "fmt", "-" },
+				args = function(_self, ctx)
+					local ext = vim.fn.fnamemodify(ctx.filename, ":e")
+					if ext == "json" or ext == "jsonc" then
+						return { "fmt", "--ext", ext, "-" }
+					else
+						return { "fmt", "-" }
+					end
+				end,
 				stdin = true,
 			},
 		},
+
 		formatters_by_ft = {
 			lua = { "stylua" },
 
-			javascript = function(bufnr)
-				return get_js_formatter(bufnr)
+			javascript = function()
+				return get_js_formatter()
 			end,
 
-			javascriptreact = function(bufnr)
-				return get_js_formatter(bufnr)
+			javascriptreact = function()
+				return get_js_formatter()
 			end,
 
-			typescript = function(bufnr)
-				return get_js_formatter(bufnr)
+			typescript = function()
+				return get_js_formatter()
 			end,
 
-			typescriptreact = function(bufnr)
-				return get_js_formatter(bufnr)
+			typescriptreact = function()
+				return get_js_formatter()
 			end,
 
-			json = { "biome" },
+			json = function()
+				return get_json_formatter()
+			end,
 
-			jsonc = { "biome" },
+			jsonc = function()
+				return get_json_formatter()
+			end,
 
 			go = { "goimports", "gofmt" },
 
