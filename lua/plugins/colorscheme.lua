@@ -34,6 +34,11 @@ return {
 			})
 
 			vim.cmd([[colorscheme gruvbox]])
+
+			-- Custom highlight overrides for high-contrast search visibility
+			vim.api.nvim_set_hl(0, "Search", { bg = "#fabd2f", fg = "#1d2021", bold = true }) -- Bright yellow background, dark text
+			vim.api.nvim_set_hl(0, "IncSearch", { bg = "#fabd2f", fg = "#1d2021", bold = true }) -- Bright yellow background, light text
+			vim.api.nvim_set_hl(0, "CurSearch", { bg = "#b8bb26", fg = "#1d2021", bold = true }) -- Bright green background, dark text
 		end,
 	},
 }
