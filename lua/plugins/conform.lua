@@ -86,6 +86,12 @@ return {
 			go = { "goimports", "gofmt" },
 
 			rust = { "rustfmt" },
+
+			sh = { "shfmt", "shellcheck" },
+
+			bash = { "shfmt", "shellcheck" },
+
+			zsh = { "shfmt", "shellcheck" },
 		},
 	},
 }
