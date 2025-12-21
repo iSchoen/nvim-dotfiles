@@ -9,6 +9,7 @@ return {
 			ensure_installed = {
 				'bash',
 				'c',
+				"css",
 				'cpp',
 				'diff',
 				'go',
@@ -21,6 +22,8 @@ return {
 				'python',
 				'query',
 				'rust',
+				"scss",
+				"svelte",
 				'tsx',
 				'typescript',
 				'vim',

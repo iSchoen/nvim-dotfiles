@@ -16,6 +16,12 @@ local get_json_formatter = function()
 	return { "deno_fmt" }
 end
 
+local get_svelte_formatter = function()
+	if project.has_biome() then
+		return { "biome-check" }
+	end
+end
+
 return {
 	"stevearc/conform.nvim",
 	event = { "BufWritePre" },
@@ -81,6 +87,10 @@ return {
 
 			jsonc = function()
 				return get_json_formatter()
+			end,
+
+			svelte = function()
+				return get_svelte_formatter()
 			end,
 
 			go = { "goimports", "gofmt" },
