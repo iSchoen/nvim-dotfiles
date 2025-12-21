@@ -16,10 +16,6 @@ return {
 		local buf_name = vim.api.nvim_buf_get_name(bufnr)
 		local filename = vim.fn.fnamemodify(buf_name, ":t")
 
-		if filename == "biome.json" or filename == "biome.jsonc" then
-			return nil
-		end
-
 		on_dir(vim.fn.getcwd())
 	end,
 
